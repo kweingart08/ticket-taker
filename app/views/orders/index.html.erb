@@ -1,0 +1,26 @@
+<h1>Orders</h1>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Date of Show</th>
+      <th>Time of Show</th>
+      <th>Movie Title</th>
+      <th>Quantity Bought</th>
+      <th>Total Sale Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%=order.showtime.time.strftime('%A %b. %d, %Y')%></td>
+      <td><%=order.showtime.time.strftime('%I:%M%p')%></td>
+      <td><%= order.showtime.movie.title %></td>
+      <td><%= order.quantity %></td>
+      <td><%= order.showtime.price*order.quantity %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

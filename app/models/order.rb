@@ -18,6 +18,4 @@ class Order < ApplicationRecord
 
   # need to validate credit card
 
-
-
 end

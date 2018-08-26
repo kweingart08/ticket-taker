@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
+
   def show
     @order = Order.find(params[:id])
   end
@@ -31,7 +32,9 @@ class OrdersController < ApplicationController
       showtime_id: params[:showtime_id].to_i
       })
 
+    if @order.save
 
+      # if the order goes through, account for those tickets
       @showtime = Showtime.find(params[:showtime_id])
       # need to increase the number sold
       new_tickets = @showtime.tickets_sold + params[:order][:quantity].to_i
@@ -39,8 +42,9 @@ class OrdersController < ApplicationController
         tickets_sold: new_tickets
       })
 
+      # need to send email to the user using the email address with order information and total dollar amount
 
-    if @order.save
+
       redirect_to showtime_orders_path
     else
       render 'new'
