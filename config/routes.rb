@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   root 'screens#index'
 
+  resources :screens
+
 end

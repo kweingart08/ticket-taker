@@ -4,4 +4,9 @@ class ScreensController < ApplicationController
 
   end
 
+  # create a new screen to show movies
+  def new
+
+  end
+
 end
