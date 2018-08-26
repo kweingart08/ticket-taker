@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :screens
   resources :movies
+  resources :showtimes
 end

@@ -1,0 +1,21 @@
+<h3>Showtimes</h3>
+<% @showtimes.each do |showtime| %>
+  <div class="well">
+
+    <p><%=showtime.movie.title%></p>
+    <p><%=showtime.time.strftime('%A %b.%d, %Y')%></p>
+    <p><%=showtime.time.strftime('%I:%M%p')%></p>
+    <p>$<%=showtime.price%></p>
+    <%= link_to "Showtime Info", showtime_path(showtime), :class => 'button' %>
+
+    <%= link_to "Delete",
+      showtime_path(showtime),
+      method: :delete,
+      :class => 'button btn-danger' %>
+
+    <%= link_to "Edit",
+      edit_showtime_path(showtime),
+      :class => 'button' %>
+
+  </div>
+<% end %>

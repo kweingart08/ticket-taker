@@ -1,0 +1,28 @@
+<h3>Add Showtime</h3>
+<%= form_for @showtime do |f| %>
+
+  <div>
+    <%= f.label :screen %><br>
+    <%= collection_select(:showtime, :screen_id, Screen.all, :id, :id, {}, {:multiple => false}) %><br>
+  </div>
+
+  <div>
+    <%= f.label :movie %><br>
+    <%= collection_select(:showtime, :movie_id, Movie.all, :id, :title, {}, {:multiple => false}) %><br>
+  </div>
+
+  <div>
+    <%= f.label :time %><br>
+    <%= f.datetime_field :time %>
+  </div>
+
+  <div>
+    <%= f.label :price %><br>
+    <%= f.number_field :price, step: :any %>
+  </div>
+
+  <div>
+    <%= f.submit({:class => 'button'}) %>
+  </div>
+
+<% end %>
