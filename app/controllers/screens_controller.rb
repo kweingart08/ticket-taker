@@ -10,18 +10,19 @@ class ScreensController < ApplicationController
 
   # create a new screen to show movies
   def new
-
+    @screen = Screen.new
   end
 
   def create
     # render plain: params[:screen].inspect
     @screen = Screen.new(screen_params)
 
-    @screen.save
-
-    #this will redirect to the show view of that screen
-    redirect_to @screen
-
+    if @screen.save
+      #this will redirect to the show view of that screen
+      redirect_to @screen
+    else
+      render 'new'
+    end
   end
 
   private def screen_params

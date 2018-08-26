@@ -3,6 +3,14 @@
 <!-- go into screens_path controller and create route  -->
 <%= form_for :screen, url: screens_path do |f| %>
 
+  <% if @screen.errors.any? %>
+  <% @screen.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger">
+      <%= msg %>
+    </div>
+  <% end %>
+  <% end %>
+
   <div class="">
     <%= f.label :room_number %><br>
     <%= f.number_field :room_number %>
