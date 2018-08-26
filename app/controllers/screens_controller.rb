@@ -19,7 +19,7 @@ class ScreensController < ApplicationController
 
     if @screen.save
       #this will redirect to the show view of that screen
-      redirect_to @screen
+      redirect_to screens_path
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class ScreensController < ApplicationController
 
     if @screen.update(screen_params)
       #this will redirect to the show view of that screen
-      redirect_to @screen
+      redirect_to screens_path
     else
       render 'edit'
     end

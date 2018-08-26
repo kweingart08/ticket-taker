@@ -1,7 +1,14 @@
 <h1>Add Movie</h1>
 
 <%= form_for :movie, url: movies_path do |f| %>
-
+  <!-- check if there are any errors with putting in a title -->
+  <% if @movie.errors.any? %>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger">
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div>
     <%= f.label :title %><br>
