@@ -1,1 +1,20 @@
-<h1>new</h1>
+<h1>Add Screen</h1>
+
+<!-- go into screens_path controller and create route  -->
+<%= form_for :screen, url: screens_path do |f| %>
+
+  <div class="">
+    <%= f.label :room_number %><br>
+    <%= f.number_field :room_number %>
+  </div>
+
+  <div class="">
+    <%= f.label :capacity %><br>
+    <%= f.number_field :capacity %>
+  </div>
+
+  <div class="">
+      <%= f.submit({:class => 'button'}) %>
+  </div>
+
+<% end %>
