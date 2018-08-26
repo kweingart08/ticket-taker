@@ -1,2 +1,6 @@
-<h2><%= @screen.room_number %></h2>
+<h2>Room Number: <%= @screen.room_number %></h2>
 <p>Capacity: <%= @screen.capacity %></p>
+
+<hr>
+<%= link_to "Edit", edit_screen_path(@screen), :class => 'button' %>
+<%= link_to "Delete", screen_path(@screen), method: :delete, data: {confirm: 'Are you sure you want to delete?'}, :class => 'button btn-danger' %>

@@ -25,6 +25,27 @@ class ScreensController < ApplicationController
     end
   end
 
+  def edit
+    @screen = Screen.find(params[:id])
+  end
+
+  def update
+    @screen = Screen.find(params[:id])
+
+    if @screen.update(screen_params)
+      #this will redirect to the show view of that screen
+      redirect_to @screen
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @screen = Screen.find(params[:id])
+    @screen.destroy
+    redirect_to screens_path
+  end
+
   private def screen_params
     params.require(:screen).permit(:room_number, :capacity)
   end

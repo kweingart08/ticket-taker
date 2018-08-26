@@ -2,9 +2,10 @@
 
 <% @screens.each do |screen| %>
 
-  <div class="screen">
-    <h2>Screen Number: <%= screen.room_number %></h2>
-    <h5>Capacity: <%= screen.capacity %></h5>
+  <div class="well">
+    <h2>Room Number: <%= screen.room_number %></h2>
+    <h4>Capacity: <%= screen.capacity %></h4>
+    <%= link_to "Screen Information", screen_path(screen), :class => 'button' %>
   </div>
 
 
