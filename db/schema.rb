@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_26_193122) do
+ActiveRecord::Schema.define(version: 2018_08_26_195152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2018_08_26_193122) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "credit_card_number"
+    t.date "expiration_date"
+    t.integer "quantity"
+    t.bigint "showtime_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["showtime_id"], name: "index_orders_on_showtime_id"
   end
 
   create_table "screens", force: :cascade do |t|
@@ -40,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_08_26_193122) do
     t.index ["screen_id"], name: "index_showtimes_on_screen_id"
   end
 
+  add_foreign_key "orders", "showtimes"
   add_foreign_key "showtimes", "movies"
   add_foreign_key "showtimes", "screens"
 end

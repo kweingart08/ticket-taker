@@ -3,8 +3,8 @@
 <%= form_for :showtime, url: showtime_path(@showtime), method: :patch do |f| %>
 
   <div>
-    <%= f.label :theater %><br>
-    <%= collection_select(:showtime, :theater_id, Theater.all, :id, :id, {}, {:multiple => false}) %><br>
+    <%= f.label :screen %><br>
+    <%= collection_select(:showtime, :screen_id, Screen.all, :id, :id, {}, {:multiple => false}) %><br>
   </div>
 
   <div>
