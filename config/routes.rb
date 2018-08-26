@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root 'screens#index'
 
   resources :screens
-
+  resources :movies
 end
