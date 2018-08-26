@@ -1,1 +1,11 @@
-<h1>Index - screens</h1>
+<h1>All Screens at Theater</h1>
+
+<% @screens.each do |screen| %>
+
+  <div class="screen">
+    <h2>Screen Number: <%= screen.room_number %></h2>
+    <h5>Capacity: <%= screen.capacity %></h5>
+  </div>
+
+
+<% end %>
