@@ -1,7 +1,6 @@
-<h1>New Order</h1>
-
-
 <h3>Add Order</h3>
+
+<h4>Price/Ticket: $<%= @showtime.price%></h4>
 
 <%= form_for :order, url: showtime_orders_path do |f| %>
 
@@ -37,12 +36,6 @@
     <%= f.label :quantity %><br>
     <%= f.select :quantity, (1..10) %>
   </div>
-
-  <div>
-    <%= f.label :showtime_id %><br>
-    <%= f.number_field :showtime_id, :value => params[:showtime_id] %>
-  </div>
-
 
   <div>
     <%= f.submit({:class => 'button'}) %>
