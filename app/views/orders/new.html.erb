@@ -23,6 +23,11 @@
   </div>
 
   <div>
+    <%= f.label 'Confirm Email' %><br>
+    <%= f.email_field :email_confirmation %>
+  </div>
+
+  <div>
     <%= f.label :credit_card_number %><br>
     <%= f.text_field :credit_card_number %>
   </div>
@@ -38,7 +43,7 @@
   </div>
 
   <div>
-    <%= f.submit({:class => 'button'}) %>
+    <%= f.submit "Submit Order", :class => 'button' %>
   </div>
 
 
