@@ -5,5 +5,8 @@ Rails.application.routes.draw do
 
   resources :screens
   resources :movies
-  resources :showtimes
+  resources :showtimes do
+    resources :orders
+  end
+  resources :orders, only: [:index]
 end
