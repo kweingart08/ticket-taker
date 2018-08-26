@@ -19,12 +19,7 @@
 
   <div>
     <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-
-  <div>
-    <%= f.label 'Confirm Email' %><br>
-    <%= f.email_field :email_confirmation %>
+    <%= f.text_field :email %>
   </div>
 
   <div>
@@ -33,7 +28,7 @@
   </div>
 
   <div>
-    <%= f.label :date %><br>
+    <%= f.label :expiration_date %><br>
     <%= f.date_field :expiration_date %>
   </div>
 
