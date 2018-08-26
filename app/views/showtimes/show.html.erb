@@ -7,5 +7,6 @@
   <p>Tickets Sold: <%=@showtime.tickets_sold%></p>
   <p>Tickets Remaining: <%= @showtime.screen.capacity - @showtime.tickets_sold %></p>
 
+  <%= link_to "Buy Tickets", new_showtime_order_path(@showtime), :class => 'button' %>
 
 </div>
