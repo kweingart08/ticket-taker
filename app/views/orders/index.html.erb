@@ -19,8 +19,25 @@
       <td><%=order.showtime.time.strftime('%I:%M%p')%></td>
       <td><%= order.showtime.movie.title %></td>
       <td><%= order.quantity %></td>
-      <td><%= order.showtime.price*order.quantity %></td>
+      <td>$ <%= order.showtime.price*order.quantity %></td>
     </tr>
     <% end %>
+  </tbody>
+</table>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Totals</th>
+      <th>Quantity Bought</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add name of whatever is being filtered</td>
+      <td>Need to sum up quantities</td>
+      <td>Need to add prices</td>
+    </tr>
   </tbody>
 </table>
