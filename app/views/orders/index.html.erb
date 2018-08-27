@@ -1,5 +1,7 @@
 <h1>Orders</h1>
 
+<h2>TOTAL REVENUE: $<%= @revenue %></h2>
+
 <table class="u-full-width">
   <thead>
     <tr>
@@ -58,4 +60,13 @@
 <%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').count, xtitle: "Movie Title", ytitle: "Total Tickets Sold" %>
 
 <h3>Total Revenue per Movie Title</h3>
-<%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity'), xtitle: "Movie Title", ytitle: "Total Tickets Sold" %>
+<%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity'), xtitle: "Movie Title", ytitle: "Total Revenue" %>
+
+<h3>Total Orders per Time of Day</h3>
+
+
+<h3>Total Revenue per Time of Day</h3>
+
+
+<h3>Total Revenue per Day of Week</h3>
+<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('extract(DOW FROM time)').sum('price*quantity') %>
