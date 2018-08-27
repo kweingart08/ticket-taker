@@ -1,7 +1,12 @@
 <h1>Orders</h1>
 
 <h2>TOTAL REVENUE: $<%= @revenue %></h2>
-<h4>Filter By Movie Name: <%= select("movie", "title", Movie.all.collect(&:title)) %></h4>
+<h4>Filter By Movie Name: </h4>
+<%= form_tag 'orders', :method => :get do %>
+  <%= text_field_tag :value_one %>
+  <%= submit_tag 'Filter' %>
+<% end %>
+
 
 <table class="u-full-width">
   <thead>

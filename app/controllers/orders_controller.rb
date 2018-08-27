@@ -1,9 +1,18 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    # @orders = Order.all
+    p '==================='
+    p params[:value_one]
+    p '==================='
 
-    # @sum = Order.sum(:quantity :group => :title)
+    if params[:value_one]
+      title = params[:value_one]
+      @orders = Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').where("title = '#{title}'")
+    else
+      @orders = Order.all
+    end
+
     @sum = Order.sum(:quantity)
 
     # go through each order and add up the quantity and price
@@ -18,6 +27,7 @@ class OrdersController < ApplicationController
       return revenue.round(2)
     end
     @revenue = get_total_revenue
+
   end
 
 
