@@ -64,3 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Specific to create graphs
 gem 'hightop'
 gem 'chartkick'
+gem 'figaro'
