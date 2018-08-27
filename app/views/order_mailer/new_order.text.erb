@@ -1,0 +1,13 @@
+You just ordered tickets to the movies!
+
+Hello <%= @order.name %>
+
+Your ticket order has been completed.
+
+Quantity: <%= @order.quantity %>
+Price Per Ticket: $<%= @order.showtime.price %>
+Total Charged: $<%= @order.showtime.price*@order.quantity %>
+
+
+Thanks & Regards,
+Ticket Taker
