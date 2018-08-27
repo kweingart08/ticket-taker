@@ -13,15 +13,13 @@ class OrdersController < ApplicationController
         quantity = order.quantity.to_i
         price = order.showtime.price.to_f
         sale = quantity * price
-        p '==================='
-        p sale
-        p '==================='
-
         revenue += sale
       end
       return revenue.round(2)
     end
     @revenue = get_total_revenue
+
+    
 
 
   end

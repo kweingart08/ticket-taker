@@ -19,7 +19,7 @@
       <td><%=order.showtime.time.strftime('%I:%M%p')%></td>
       <td><%= order.showtime.movie.title %></td>
       <td><%= order.quantity %></td>
-      <td>$ <%= order.showtime.price*order.quantity %></td>
+      <td>$ <%= '%.2f' % (order.showtime.price*order.quantity) %></td>
     </tr>
     <% end %>
     <tr>
