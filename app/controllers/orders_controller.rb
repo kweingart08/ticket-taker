@@ -1,10 +1,6 @@
 class OrdersController < ApplicationController
 
   def index
-    # @orders = Order.all
-    p '==================='
-    p params[:value_one]
-    p '==================='
 
     if params[:value_one]
       title = params[:value_one]

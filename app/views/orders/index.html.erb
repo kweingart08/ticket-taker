@@ -1,11 +1,14 @@
 <h1>Orders</h1>
 
-<h2>TOTAL REVENUE: $<%= @revenue %></h2>
+<h2>TOTAL REVENUE: $<%= '%.2f' % @revenue %></h2>
 <h4>Filter By Movie Name: </h4>
 <%= form_tag 'orders', :method => :get do %>
   <%= text_field_tag :value_one %>
   <%= submit_tag 'Filter' %>
+  <%= link_to "See All Orders", orders_path, :class => 'button' %>
 <% end %>
+
+
 
 
 <table class="u-full-width">
@@ -36,7 +39,7 @@
       <td></td>
       <td></td>
       <td><strong><%= @sum %></strong></td>
-      <td><strong>$ <%= @revenue %></strong></td>
+      <td><strong>$ <%= '%.2f' % @revenue %></strong></td>
     </tr>
   </tbody>
 </table>
