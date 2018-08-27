@@ -60,17 +60,17 @@
 <%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('quantity'), xtitle: "Movie Title", ytitle: "Total Tickets Sold" %>
 
 <h3>Total Revenue per Movie Title</h3>
-<%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity'), xtitle: "Movie Title", ytitle: "Total Revenue" %>
+<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity'), xtitle: "Total Revenue ($)", ytitle: "Movie Title" %>
 
 
 
 
 
-<h3>Total Number of Tickets Sold per Time of Movie</h3>
-<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time').sum('quantity') %>
+<h3>Total Number of Tickets Sold per Time of Day</h3>
+<%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time::time').sum('quantity') %>
 
 <h3>Total Revenue per Time of Day</h3>
-<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time').sum('price*quantity') %>
+<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time::time').sum('price*quantity') %>
 
 <h3>Total Revenue per Day of Week</h3>
-<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group_by_day_of_week('time', format: "%a").sum('price*quantity') %>
+<%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group_by_day_of_week('time', format: "%a").sum('price*quantity'), xtitle: "Total Revenue ($)", ytitle: "Day of Week" %>
