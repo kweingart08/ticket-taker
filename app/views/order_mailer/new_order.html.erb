@@ -1,11 +1,11 @@
 <h1>Hello <%= @order.name %></h1>
 <p>
-  Your ticket order has been completed.
+  Your ticket order for <%= @order.showtime.movie.title %> has been completed.
 </p>
 <div class="order">
   <h3>Quantity: <%= @order.quantity %></h3>
   <h3>Price Per Ticket: $<%= '%.2f' % @order.showtime.price %></h3>
-  <h3>Total Charged: $<%= '%.2f' % @order.showtime.price*@order.quantity %></h3>
+  <h3>Total Charged: $<%= '%.2f' % (@order.showtime.price*@order.quantity) %></h3>
 </div>
 
 <p>Thanks & Regards,</p>

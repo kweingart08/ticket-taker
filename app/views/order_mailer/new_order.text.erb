@@ -2,11 +2,11 @@ You just ordered tickets to the movies!
 
 Hello <%= @order.name %>
 
-Your ticket order has been completed.
+Your ticket order for <%= @order.showtime.movie.title %> has been completed.
 
 Quantity: <%= @order.quantity %>
 Price Per Ticket: $<%= '%.2f' % @order.showtime.price %>
-Total Charged: $<%= '%.2f' % @order.showtime.price*@order.quantity %>
+Total Charged: $<%= '%.2f' % (@order.showtime.price*@order.quantity) %>
 
 
 Thanks & Regards,
