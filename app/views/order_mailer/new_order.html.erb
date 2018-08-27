@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @order.name %></h1>
+    <p>
+      Your ticket order has been completed.
+    </p>
+    <div class="order">
+      <h3>Quantity: <%= @order.quantity %></h3>
+      <h3>Price Per Ticket: $<%= @order.showtime.price %></h3>
+      <h3>Total Charged: $<%= @order.showtime.price*@order.quantity %></h3>
+    </div>
+
+    <p>Thanks & Regards,</p>
+    <p>Ticket Taker</p>
+  </body>
+</html>

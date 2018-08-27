@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
       })
 
       # need to send email to the user using the email address with order information and total dollar amount
-
+      OrderMailer.new_order(@order).deliver_now
 
       redirect_to showtime_orders_path
     else
