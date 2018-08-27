@@ -18,10 +18,6 @@ class OrdersController < ApplicationController
       return revenue.round(2)
     end
     @revenue = get_total_revenue
-
-
-
-
   end
 
 
