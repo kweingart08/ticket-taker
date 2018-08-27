@@ -2,7 +2,7 @@
   <p><%=@showtime.movie.title%></p>
   <p><%=@showtime.time.strftime('%A %b.%d, %Y')%></p>
   <p><%=@showtime.time.strftime('%I:%M%p')%></p>
-  <p>$<%=@showtime.price%></p>
+  <p>$<%= '%.2f' % @showtime.price%></p>
   <p>Room Capacity: <%=@showtime.screen.capacity%></p>
   <p>Tickets Sold: <%=@showtime.tickets_sold%></p>
   <p>Tickets Remaining: <%= @showtime.screen.capacity - @showtime.tickets_sold %></p>
