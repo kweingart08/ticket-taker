@@ -53,4 +53,6 @@
 
 
 <h1>Dashboard</h1>
-<%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').count %>
+
+<h3>Total Number of Tickets Sold per Movie Title</h3>
+<%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').count, xtitle: "Movie Title", ytitle: "Total Tickets Sold" %>
