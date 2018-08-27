@@ -22,8 +22,17 @@
       <td>$ <%= order.showtime.price*order.quantity %></td>
     </tr>
     <% end %>
+    <tr>
+      <td><strong>TOTALS</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><strong><%= @sum %></strong></td>
+      <td><strong>$ <%= @revenue %></strong></td>
+    </tr>
   </tbody>
 </table>
+
 
 <table class="u-full-width">
   <thead>
@@ -41,3 +50,6 @@
     </tr>
   </tbody>
 </table>
+
+
+<h1>Dashboard</h1>

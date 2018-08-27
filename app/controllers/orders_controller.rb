@@ -2,6 +2,28 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+
+    # @sum = Order.sum(:quantity :group => :title)
+    @sum = Order.sum(:quantity)
+
+    # go through each order and add up the quantity and price
+    def get_total_revenue
+      revenue = 0
+      @orders.each do |order|
+        quantity = order.quantity.to_i
+        price = order.showtime.price.to_f
+        sale = quantity * price
+        p '==================='
+        p sale
+        p '==================='
+
+        revenue += sale
+      end
+      return revenue.round(2)
+    end
+    @revenue = get_total_revenue
+
+
   end
 
 
