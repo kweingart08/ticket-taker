@@ -37,8 +37,8 @@ class Order < ApplicationRecord
      sum += new_array[i].to_i
     end
 
-    if sum % 10 != 0
-      errors.add(:credit_card_number, "Card Number Not Valid")
+    if sum % 10 != 0 || num_array.length != 16
+      errors.add(:credit_card_number, ": Card Number Not Valid")
     end
   end
 
