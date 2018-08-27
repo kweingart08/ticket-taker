@@ -4,8 +4,8 @@
 </p>
 <div class="order">
   <h3>Quantity: <%= @order.quantity %></h3>
-  <h3>Price Per Ticket: $<%= @order.showtime.price %></h3>
-  <h3>Total Charged: $<%= @order.showtime.price*@order.quantity %></h3>
+  <h3>Price Per Ticket: $<%= '%.2f' % @order.showtime.price %></h3>
+  <h3>Total Charged: $<%= '%.2f' % @order.showtime.price*@order.quantity %></h3>
 </div>
 
 <p>Thanks & Regards,</p>

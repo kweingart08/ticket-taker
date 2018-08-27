@@ -5,8 +5,8 @@ Hello <%= @order.name %>
 Your ticket order has been completed.
 
 Quantity: <%= @order.quantity %>
-Price Per Ticket: $<%= @order.showtime.price %>
-Total Charged: $<%= @order.showtime.price*@order.quantity %>
+Price Per Ticket: $<%= '%.2f' % @order.showtime.price %>
+Total Charged: $<%= '%.2f' % @order.showtime.price*@order.quantity %>
 
 
 Thanks & Regards,
