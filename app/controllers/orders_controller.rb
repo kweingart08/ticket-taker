@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     end
     @revenue = get_total_revenue
 
-    
+
 
 
   end

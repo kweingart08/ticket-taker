@@ -17,6 +17,7 @@ class Order < ApplicationRecord
 
 
   # using the luhn algorithm to detect valid card number
+  # check credit card is valid
   validate :valid_card
   def valid_card
     number = credit_card_number
@@ -42,6 +43,5 @@ class Order < ApplicationRecord
     end
   end
 
-  # need to validate credit card
 
 end
