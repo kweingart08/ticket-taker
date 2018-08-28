@@ -59,6 +59,9 @@
 
     <!-- load all files for app into this container -->
     <div class="container">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
     </div>
 
