@@ -40,3 +40,15 @@ a.button:hover {
 .details {
   padding: 15px;
 }
+
+.jumbotron {
+  background-image: url(/assets/Ticket-Taker-Favicon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 50px;
+}
+
+.jumbotron h1 {
+  text-align: right;
+  font-family: 'Tinos', serif;
+}
