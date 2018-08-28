@@ -9,4 +9,7 @@ Rails.application.routes.draw do
     resources :orders
   end
   resources :orders, only: [:index]
+
+  resources :admin, only: [:index]
+
 end

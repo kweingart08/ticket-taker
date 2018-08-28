@@ -12,7 +12,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  
+
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -32,15 +32,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Screens", screens_path %></li>
-            <li><%= link_to "Movies", movies_path %></li>
             <li><%= link_to "Showtimes", showtimes_path %></li>
-            <li><%= link_to "Orders", orders_path %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Add Screen", new_screen_path %></li>
-            <li><%= link_to "Add Movie", new_movie_path %></li>
-            <li><%= link_to "Add Showtime", new_showtime_path %></li>
+            <li><%= link_to "Admin", admin_index_path %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
