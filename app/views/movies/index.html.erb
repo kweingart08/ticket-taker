@@ -1,9 +1,15 @@
+<%= link_to "Back", admin_index_path, :class => 'button' %>
+
 <h1>Movies at this Theater</h1>
 
 <% @movies.each do |movie| %>
   <div class="well">
     <h3><%= movie.title %></h3>
-    <%= link_to "Movie Info", movie_path(movie), :class => 'button' %>
+    <%= link_to "Edit", edit_movie_path(movie), :class => 'button' %>
+    <%= link_to "Delete",
+      movie_path(movie),
+      method: :delete,
+      :class => 'button btn-danger' %>
   </div>
 
 <% end %>
