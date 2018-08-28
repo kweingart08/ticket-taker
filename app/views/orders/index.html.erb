@@ -52,7 +52,7 @@
   <h1>Dashboard</h1>
 
   <h3>Total Number of Tickets Sold per Movie Title</h3>
-  <%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('quantity'), xtitle: "Movie Title", ytitle: "Total Tickets Sold" %>
+  <%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('quantity'), xtitle: "Movie Title", ytitle: "Total Tickets Sold", colors: ["rgba(51,195,240,1)"] %>
 
   <h3>Total Revenue per Movie Title</h3>
   <%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity'), xtitle: "Total Revenue ($)", ytitle: "Movie Title" %>

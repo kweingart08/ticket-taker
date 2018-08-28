@@ -107,3 +107,11 @@ td {
 .orders-div {
   min-width: 750px;
 }
+
+i {
+  color: #e65b5b;
+}
+
+i:hover {
+  color: rgba(230,91,91,0.5);
+}
