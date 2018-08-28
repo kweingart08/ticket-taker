@@ -1,22 +1,29 @@
 <h1>Admin</h1>
 
+<div class="admin-options">
 <!-- add links to screens movies and orders -->
-<div class="">
-  <ul class="nav navbar-nav">
-    <li><%= link_to "Screens", screens_path %></li>
-    <li><%= link_to "Movies", movies_path %></li>
-    <li><%= link_to "Showtimes", admin_showtimes_path %></li>
-    <li><%= link_to "Orders", orders_path %></li>
-  </ul>
-</div>
+  <div class="well">
+    <div class="content">
+      <h2>See Current</h2>
+      <div class="admin-links">
+        <%= link_to "Screens", screens_path, class: 'button' %>
+        <%= link_to "Movies", movies_path, class: 'button' %>
+        <%= link_to "Showtimes", admin_showtimes_path, class: 'button' %>
+        <%= link_to "Orders", orders_path, class: 'button' %>
+      </div>
+    </div>
+  </div>
 
-
-<!-- add links to add screens movies or showtimes -->
-<div class="">
-  <!-- only show this on the admins path -->
-  <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to "Add Screen", new_screen_path %></li>
-    <li><%= link_to "Add Movie", new_movie_path %></li>
-    <li><%= link_to "Add Showtime", new_showtime_path %></li>
-  </ul>
+  <div class="well">
+    <div class="content">
+      <h2>Add New</h2>
+        <!-- only show this on the admins path -->
+      <div class="admin-links">
+        <%= link_to "Add Screen", new_screen_path, class: 'button' %>
+        <%= link_to "Add Movie", new_movie_path, class: 'button' %>
+        <%= link_to "Add Showtime", new_showtime_path, class: 'button' %>
+      </div>
+    </div>
+  </div>
+  
 </div>
