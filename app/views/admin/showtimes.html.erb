@@ -1,3 +1,5 @@
+<%= link_to "Back", admin_index_path, :class => 'button' %>
+
 <h1>Showtimes</h1>
 <% @showtimes.each do |showtime| %>
   <div class="well">
@@ -7,6 +9,15 @@
     <p><%=showtime.time.strftime('%I:%M%p')%></p>
     <p>$<%= '%.2f' % showtime.price%></p>
     <%= link_to "Showtime Info", showtime_path(showtime), :class => 'button' %>
+
+    <%= link_to "Delete",
+      showtime_path(showtime),
+      method: :delete,
+      :class => 'button btn-danger' %>
+
+    <%= link_to "Edit",
+      edit_showtime_path(showtime),
+      :class => 'button' %>
 
   </div>
 <% end %>

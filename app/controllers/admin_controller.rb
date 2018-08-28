@@ -4,4 +4,8 @@ class AdminController < ApplicationController
 
   end
 
+  def showtimes
+    @showtimes = Showtime.all
+  end
+
 end

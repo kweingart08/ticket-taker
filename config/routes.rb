@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :orders
 
   resources :admin, only: [:index]
-
+  get 'admin/showtimes'
 end

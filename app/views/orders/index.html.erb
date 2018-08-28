@@ -31,7 +31,10 @@
       <td><%= order.showtime.movie.title %></td>
       <td><%= order.quantity %></td>
       <td>$ <%= '%.2f' % (order.showtime.price*order.quantity) %></td>
-      <td><%= link_to "Delete", order_path(order), method: :delete %></td>
+      <td><%= link_to order_path(order), method: :delete do %>
+        <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
     </tr>
     <% end %>
     <tr>
