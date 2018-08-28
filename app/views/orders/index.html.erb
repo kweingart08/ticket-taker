@@ -57,7 +57,7 @@
   <%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity'), xtitle: "Total Revenue ($)", ytitle: "Movie Title", colors: ["rgba(51,195,240,0.75)"] %>
 
   <h3>Total Revenue per Time of Day</h3>
-  <%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time::time').order('time::time').sum('price*quantity'), colors: ["rgba(51,195,240,0.75)"] %>
+  <%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time::time').order('time::time').sum('price*quantity'), xtitle: "Total Revenue", ytitle: "Time of Day", colors: ["rgba(51,195,240,0.75)"] %>
 
   <h3>Total Revenue per Day of Week</h3>
   <%= bar_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group_by_day_of_week('time', format: "%a").sum('price*quantity'), xtitle: "Total Revenue ($)", ytitle: "Day of Week", colors: ["rgba(51,195,240,0.75)"] %>
@@ -70,7 +70,7 @@
 
 
   <h3>Total Number of Tickets Sold per Time of Day</h3>
-  <%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time::time').order('time::time').sum('quantity'), colors: ["rgba(51,195,240,0.75)"] %>
+  <%= column_chart Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group('time::time').order('time::time').sum('quantity'), xtitle: "Time of Day", ytitle: "Total Tickets Sold", colors: ["rgba(51,195,240,0.75)"] %>
 
 
 
