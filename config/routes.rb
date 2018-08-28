@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :showtimes do
     resources :orders
   end
-  resources :orders, only: [:index]
+  resources :orders
 
   resources :admin, only: [:index]
 

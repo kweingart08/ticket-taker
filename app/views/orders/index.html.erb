@@ -1,3 +1,5 @@
+<%= link_to "Back", admin_index_path, :class => 'button' %>
+
 <h1>Orders</h1>
 
 <h2>TOTAL REVENUE: $ <%= '%.2f' % @revenue %></h2>
@@ -8,9 +10,6 @@
   <%= link_to "See All Orders", orders_path, :class => 'button' %>
 <% end %>
 
-
-
-
 <table class="u-full-width">
   <thead>
     <tr>
@@ -20,6 +19,7 @@
       <th>Movie Title</th>
       <th>Quantity Bought</th>
       <th>Total Sale Price</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +31,7 @@
       <td><%= order.showtime.movie.title %></td>
       <td><%= order.quantity %></td>
       <td>$ <%= '%.2f' % (order.showtime.price*order.quantity) %></td>
+      <td><%= link_to "Delete", order_path(order), method: :delete %></td>
     </tr>
     <% end %>
     <tr>
