@@ -5,7 +5,7 @@ class ShowtimesController < ApplicationController
   end
 
   def index
-    @showtimes = Showtime.all
+    @showtimes = Showtime.joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').order('title, time')
   end
 
   def show

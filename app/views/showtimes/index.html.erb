@@ -1,5 +1,8 @@
 <h1>Showtimes</h1>
 <% @showtimes.each do |showtime| %>
+  <!-- make sure the time hasn't passed -->
+  <% if showtime.time > Time.now %>
+
   <div class="well">
 
     <p><%=showtime.movie.title%></p>
@@ -9,4 +12,7 @@
     <%= link_to "Showtime Info", showtime_path(showtime), :class => 'button' %>
 
   </div>
+
+  <% end %>
+
 <% end %>
