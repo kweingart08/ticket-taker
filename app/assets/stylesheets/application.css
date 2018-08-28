@@ -58,7 +58,7 @@ a.button:hover {
   font-family: 'Tinos', serif;
 }
 
-label {
+label, select {
   font-size: 22px;
 }
 
@@ -79,4 +79,8 @@ ul {
 .content {
   padding: 15px;
   background: whitesmoke;
+}
+
+.screen-content, .movie-content {
+  padding: 15px;
 }

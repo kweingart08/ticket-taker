@@ -4,12 +4,14 @@
 
 <% @movies.each do |movie| %>
   <div class="well">
-    <h3><%= movie.title %></h3>
-    <%= link_to "Edit", edit_movie_path(movie), :class => 'button' %>
-    <%= link_to "Delete",
-      movie_path(movie),
-      method: :delete,
-      :class => 'button btn-danger' %>
+    <div class="movie-content">
+      <h3><%= movie.title %></h3>
+      <%= link_to "Edit", edit_movie_path(movie), :class => 'button' %>
+      <%= link_to "Delete",
+        movie_path(movie),
+        method: :delete,
+        :class => 'button btn-danger' %>
+    </div>
   </div>
 
 <% end %>
