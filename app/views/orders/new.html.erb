@@ -11,22 +11,22 @@
     <% end %>
   <% end %>
 
-  <div>
+  <div class="form-div">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
 
-  <div>
+  <div class="form-div">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
 
-  <div>
+  <div class="form-div">
     <%= f.label :credit_card_number %><br>
     <%= f.text_field :credit_card_number %>
   </div>
 
-  <div>
+  <div class="form-div">
     <%= f.label :expiration_date %><br>
     <%= f.date_field :expiration_date %>
   </div>
@@ -36,13 +36,13 @@
     tickets_left = @showtime.screen.capacity.to_i - @showtime.tickets_sold.to_i
     %>
 
-  <div>
+  <div class="form-div">
     <%= f.label :quantity %><br>
     <%= f.select :quantity, (1..tickets_left) %>
   </div>
 
-  <div>
-    <%= f.submit "Submit Order", :class => 'button' %>
+  <div class="form-div">
+    <%= f.submit "Submit Order", :class => 'button button-primary' %>
   </div>
 
 

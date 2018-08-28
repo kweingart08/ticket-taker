@@ -21,6 +21,7 @@ body {
 
 .button {
   margin-top: 20px;
+  font-size: 22px;
 }
 
 a.button:hover {
@@ -51,4 +52,18 @@ a.button:hover {
 .jumbotron h1 {
   text-align: right;
   font-family: 'Tinos', serif;
+}
+
+label {
+  font-size: 22px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 22px;
+}
+
+.form-div {
+  width: 100%;
 }
