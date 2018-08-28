@@ -14,6 +14,29 @@
  *= require_self
  */
 
+/* style for all pages */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .button {
   margin-top: 20px;
+}
+
+a.button:hover {
+  text-decoration: none;
+}
+
+.well {
+  padding: 0;
+}
+
+.movie-title h3 {
+  background: rgba(51,195,240,0.15);
+  padding: 15px;
+  margin: 0;
+}
+
+.details {
+  padding: 15px;
 }

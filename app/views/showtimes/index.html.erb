@@ -4,13 +4,21 @@
   <% if showtime.time > Time.now %>
 
   <div class="well">
-
-    <p><%=showtime.movie.title%></p>
-    <p><%=showtime.time.strftime('%A %b.%d, %Y')%></p>
-    <p><%=showtime.time.strftime('%I:%M%p')%></p>
-    <p>$<%= '%.2f' % showtime.price%></p>
-    <%= link_to "Showtime Info", showtime_path(showtime), :class => 'button' %>
-
+    <div class="movie-title">
+      <h3><%=showtime.movie.title%></h3>
+    </div>
+    <div class="details">
+      <div class="showtime">
+        <h4><%=showtime.time.strftime('%A %b. %d, %Y')%></h4>
+        <h4><%=showtime.time.strftime('%I:%M %p')%></h4>
+      </div>
+      <div class="price">
+        <h3>$<%= '%.2f' % showtime.price%></h3>
+      </div>
+      <div class="info">
+        <%= link_to "Showtime Info", showtime_path(showtime), :class => 'button button-primary' %>
+      </div>
+    </div>
   </div>
 
   <% end %>
