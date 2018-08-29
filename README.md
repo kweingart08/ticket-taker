@@ -166,6 +166,8 @@
   * The data would have a better way of being created. Right now a faker gem is used to seed the data and some of the times don't make sense when seeded (morning is anytime in the morning etc.).
   
   * Unique values. Right now you could add multiple movies with the same name or multiple screens with the same room_number. 
+  
+  * Deleting a screen or movie DOES NOT delete the showtime right now. I didn't think it would be likely to just delete a screen or movie that had active showtimes, but if that could happen, this would need updated. 
 
 ## Ruby Version and Details for Setup
 
