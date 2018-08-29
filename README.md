@@ -143,7 +143,7 @@
    
 
 #### Deploy to Heroku 
-  The site was deployed to Heroku. Environmental variables for email confirmation were setup using the terminal, and heroku rake db:migrate was used to migrate the data tables. 
+  The site was deployed to Heroku. Environmental variables for email confirmation were setup using the terminal, and heroku rake db:migrate was used to migrate the data tables. Heroku run rails db:seed was used to seed the database.
   
 ## Improvements for Later 
   
@@ -162,6 +162,8 @@
   * For production, remove the tickets left / tickets sold information on the showtimes SHOW page. 
   
   * Update dashboard to include labels and time of the day in a better format. 
+  
+  * The data would have a better way of being created. Right now a faker gem is used to seed the data and some of the times don't make sense when seeded (morning is anytime in the morning etc.).
 
 ## Ruby Version and Details for Setup
 
@@ -174,7 +176,7 @@
 
     - Postgres 
     - Run rails db:migrate
-    - Database was created on the site. No db:seed created, but could create a seed file and then seed the database. 
+    - Database was created on the site. A faker gem was used to create fake data in the db/seed file. 
 
 * Deployment instructions
 
@@ -183,4 +185,4 @@
 * Resources
 
     - CSS: Bootstrap, Skeleton, Google Fonts, Font Awesome 
-    - Extra Gems: chartkick, figaro (used to create application.yml file and add to .gitignore)
+    - Extra Gems: chartkick, figaro (used to create application.yml file and add to .gitignore), faker (used to create fake data to seed)
