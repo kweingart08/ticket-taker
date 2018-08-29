@@ -168,6 +168,8 @@
   * Unique values. Right now you could add multiple movies with the same name or multiple screens with the same room_number. 
   
   * Deleting a screen or movie DOES NOT delete the showtime right now. I didn't think it would be likely to just delete a screen or movie that had active showtimes, but if that could happen, this would need updated. 
+  
+  * Admin cannot currently add showtimes via mobile. If they try, the datetime field does not populate currently with the current site. This would need updated if the admin would be adding showtimes on mobile. I made the assumption they would be adding via a computer. 
 
 ## Ruby Version and Details for Setup
 
