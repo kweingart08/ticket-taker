@@ -166,17 +166,21 @@
 ## Ruby Version and Details for Setup
 
 * Ruby/Rails version
+
   Ruby 2.3.7 
   Rails 5.2.1
 
 * Database creation
+
   Postgres 
   Run rails db:migrate
   Database was created on the site. No db:seed created, but could create a seed file and then seed the database. 
 
 * Deployment instructions
+
   For both deployment and development, would need to configure an email and password and save in a file or as environmental variables for the email confirmation to work. 
 
 * Resources
+
   CSS: Bootstrap, Skeleton, Google Fonts, Font Awesome 
   Extra Gems: chartkick, figaro (used to create application.yml file and add to .gitignore)
