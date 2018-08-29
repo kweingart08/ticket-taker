@@ -72,7 +72,7 @@
    
 
 #### Generate Email Confirmation 
-  This was a new task for me so I watched a few different online tutorial videos and did some searching on google. Ultimately, I generated an order mailer that would take the order that was just created (if saved and successfully created) and mail it to the email that was put into the order form. An html and text view was created to send the title of the movie, the quantity bought, and the total that was charged. I also added a success alert to show up on the page when the order was successfully submitted. 
+  This was a new task for me so I watched a few different online tutorial videos and did some searching on google. Ultimately, I generated an order mailer that would take the order that was just created (if saved and successfully created) and mail it to the email that was put into the order form. An html and text view were created to send the title of the movie, the quantity bought, and the total that was charged. I also added a success alert to show up on the page when the order was successfully submitted. 
   
   Other items added/updated: 
   
@@ -89,9 +89,9 @@
       - Added OrderMailer.new(@order).deliver_now so that if an order was created, it would send the email. 
 
 #### Create Dashboard for Admin 
-  When I got to the dashboard for admin, I decided re-organize my site. I moved all of the "create" links and "show" for movies, screens, and orders to be inside the admin page. This way when I user comes to the site, they see showtimes on the main page (without the edit and delete buttons showing). If that person is admin, they can click admin and see all of their options to add or view the other data. 
+  When I got to the dashboard for admin, I decided re-organize my site. I moved all of the "create" links and "show" for movies, screens, and orders to be inside the admin page. This way when a user comes to the site, they see showtimes on the main page (without the edit and delete buttons showing). If that person is admin, they can click admin and see all of their options to add or view the other data. 
 
-  All of the order information and dashboard is found in the '/get' route for orders. This site includes the following: 
+  All of the order information and dashboard is found in the '/get' route for orders and there is a link to this from the admin page. This site includes the following: 
   
   * Table showing all orders.
   * Filter option to put in a movie name and see only those orders. 
@@ -163,7 +163,7 @@
   
   * Update dashboard to include labels and time of the day in a better format. 
   
-  * The data would have a better way of being created. Right now a faker gem is used to seed the data and some of the times don't make sense when seeded (morning is anytime in the morning etc.).
+  * Right now a faker gem is used to seed the data and some of the times don't make sense when seeded (morning is anytime in the morning etc.). Obviously, this would be taken care of with real data.
   
   * Unique values. Right now you could add multiple movies with the same name or multiple screens with the same room_number. 
   
