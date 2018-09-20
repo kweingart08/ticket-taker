@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
   resources :orders
 
-  resources :admin, only: [:index]
-  get 'admin/showtimes'
+  resources :owner, only: [:index]
+  get 'owner/showtimes'
 end
