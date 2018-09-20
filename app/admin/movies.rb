@@ -15,6 +15,7 @@ ActiveAdmin.register Movie do
   index do
     column :id
     column :title
+    actions
   end
 
 end

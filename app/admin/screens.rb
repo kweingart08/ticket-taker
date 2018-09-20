@@ -12,4 +12,11 @@ ActiveAdmin.register Screen do
 #   permitted
 # end
 
+  index do
+    column :id
+    column :room_number
+    column :capacity
+    actions
+  end
+
 end
