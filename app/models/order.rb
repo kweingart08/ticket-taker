@@ -43,5 +43,16 @@ class Order < ApplicationRecord
     end
   end
 
+  after_save :update_tickets
+
+  def update_tickets
+    p "================"
+    p self
+    new_tickets = Showtime.find(id=self.showtime_id).tickets_sold + self.quantity.to_i
+    Showtime.find(id=self.showtime_id).update({
+      tickets_sold: new_tickets
+      })
+  end
+
 
 end

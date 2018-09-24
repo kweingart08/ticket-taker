@@ -32,7 +32,7 @@ class ShowtimesController < ApplicationController
     @showtime = Showtime.find(params[:id])
 
     if(@showtime.update(showtime_params))
-      redirect_to admin_showtimes_path
+      redirect_to owner_showtimes_path
     else
       render 'edit'
     end
@@ -41,7 +41,7 @@ class ShowtimesController < ApplicationController
   def destroy
     @showtime = Showtime.find(params[:id])
     @showtime.destroy
-    redirect_to admin_showtimes_path
+    redirect_to owner_showtimes_path
   end
 
   private def showtime_params

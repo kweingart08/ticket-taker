@@ -16,12 +16,8 @@ ActiveAdmin.register Order do
     column :id
     column :name
     column :email
-    column :movie do |showtime_id|
-      @movie = Showtime.find(id=showtime_id.id).movie.title
-    end
-    column 'Date & Time' do |showtime_id|
-      @time = Showtime.find(id=showtime_id.id).time
-    end
+    column :movie
+    column 'Date & Time' 
     column :quantity
     column :order_total do |order|
       number_to_currency order.quantity * order.showtime.price
@@ -29,11 +25,6 @@ ActiveAdmin.register Order do
     actions
   end
 
-  controller do
-    def create
-
-    end
-  end
 
   filter :showtime
   filter :name
