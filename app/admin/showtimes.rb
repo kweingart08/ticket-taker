@@ -24,6 +24,17 @@ permit_params :movie_id, :screen_id, :time, :tickets_sold, :price
     actions
   end
 
+  form do |f|
+    f.inputs "New Showtime" do
+      f.input :movie
+      f.input :screen
+      f.input :time
+      f.input :tickets_sold
+      f.input :price
+    end
+    f.actions
+  end
+
 
   filter :id
   filter :time
