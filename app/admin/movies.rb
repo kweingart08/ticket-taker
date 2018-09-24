@@ -26,4 +26,5 @@ permit_params :title
     f.actions
   end
 
+
 end
