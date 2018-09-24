@@ -12,4 +12,17 @@ permit_params :name, :email, :credit_card_number, :expiration_date, :quantity, :
 #   permitted
 # end
 
+index do
+  column :id
+  column :name
+  column :email
+  column :credit_card_number
+  column :showtime
+  column :quantity
+  column :order_total do |order|
+    number_to_currency order.quantity * order.showtime.price
+  end
+  actions
+end
+
 end
