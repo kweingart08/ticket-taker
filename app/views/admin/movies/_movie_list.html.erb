@@ -1,0 +1,8 @@
+<% p @movie.id %>
+<% @showtime = Showtime.where(movie_id: @movie.id) %>
+<% @showtime.each do |showtime| %>
+  <div class="showtime">
+    <h4><%=showtime.time.strftime('%A %b. %d, %Y')%></h4>
+    <h4><%=showtime.time.strftime('%I:%M %p')%></h4>
+  </div>
+<% end %>
