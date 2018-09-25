@@ -2,23 +2,19 @@ class Order < ApplicationRecord
   belongs_to :showtime
 
   validates :name, :email, :credit_card_number, :expiration_date, :quantity, presence: true
-  # need to validate email
-
-
-  # need to check the expiration date is not earlier than today's date
+  validates :email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validate :expiration_date_cannot_be_in_the_past
+  validate :valid_card
+  
+  after_save :update_tickets
+
   def expiration_date_cannot_be_in_the_past
     if expiration_date.present? && expiration_date < Date.today
       errors.add(:expiration_date, "can't be in the past")
     end
   end
 
-  validates :email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-
-  # using the luhn algorithm to detect valid card number
-  # check credit card is valid
-  validate :valid_card
   def valid_card
     number = credit_card_number
     num_array = number.to_s.split("")
@@ -43,11 +39,10 @@ class Order < ApplicationRecord
     end
   end
 
-  after_save :update_tickets
 
   def update_tickets
-    p "================"
-    p self
+    # p "================"
+    # p self
     new_tickets = Showtime.find(id=self.showtime_id).tickets_sold + self.quantity.to_i
     Showtime.find(id=self.showtime_id).update({
       tickets_sold: new_tickets

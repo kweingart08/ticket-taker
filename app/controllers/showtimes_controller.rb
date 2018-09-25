@@ -1,9 +1,5 @@
 class ShowtimesController < ApplicationController
 
-  def new
-    @showtime = Showtime.new
-  end
-
   def index
     @showtimes = Showtime.joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').order('title, time')
   end
@@ -12,13 +8,15 @@ class ShowtimesController < ApplicationController
     @showtime = Showtime.find(params[:id])
   end
 
+  def new
+    @showtime = Showtime.new
+  end
+
   def create
     @showtime = Showtime.new(showtime_params)
 
-    # save the movie and redirect to that movie (go to the show view)
-    # make sure the movie title is in there so that a blank title can't be submitted. If no title, then render the new form again. If it is in there, go back to the movie show page
     if(@showtime.save)
-    redirect_to showtimes_path
+      redirect_to showtimes_path
     else
       render 'new'
     end
