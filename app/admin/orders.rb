@@ -16,8 +16,15 @@ ActiveAdmin.register Order do
     column :id
     column :name
     column :email
-    column :movie
-    column 'Date & Time' 
+    column :movie do |order|
+      order.showtime.movie.title
+    end
+    column 'Date' do |order|
+      order.showtime.time.strftime('%A %b. %d, %Y')
+    end
+    column 'Time' do |order|
+      order.showtime.time.strftime('%I:%M %p')
+    end
     column :quantity
     column :order_total do |order|
       number_to_currency order.quantity * order.showtime.price
