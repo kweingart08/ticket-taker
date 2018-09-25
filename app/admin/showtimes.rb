@@ -26,7 +26,7 @@ permit_params :movie_id, :screen_id, :time, :tickets_sold, :price
 
   form do |f|
     f.inputs "New Showtime" do
-      f.input :movie
+      f.input :movie, label: 'Movie Title'
       f.input :screen, label: 'Screen Room Number', :collection => Screen.all.map { |s| [s.room_number]}
       f.input :time
       f.input :tickets_sold
