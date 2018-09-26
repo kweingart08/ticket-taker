@@ -17,4 +17,8 @@ class Showtime < ApplicationRecord
     self.time.strftime('%I:%M %p')
   end
 
+  def tickets_left
+    self.screen.capacity.to_i - self.tickets_sold.to_i
+  end
+
 end

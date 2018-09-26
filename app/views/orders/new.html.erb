@@ -32,14 +32,9 @@
     <%= f.date_field :expiration_date %>
   </div>
 
-    <%
-    @showtime = Showtime.find(params[:showtime_id])
-    tickets_left = @showtime.screen.capacity.to_i - @showtime.tickets_sold.to_i
-    %>
-
   <div class="form-div">
     <%= f.label :quantity %><br>
-    <%= f.select :quantity, (1..tickets_left) %>
+    <%= f.select :quantity, (1..@showtime.tickets_left) %>
   </div>
 
   <div class="form-div">

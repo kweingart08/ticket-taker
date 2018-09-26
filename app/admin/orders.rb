@@ -32,6 +32,21 @@ ActiveAdmin.register Order do
     end
   end
 
+  form do |f|
+    f.inputs "New Order" do
+      f.input :showtime
+      f.input :name
+      f.input :email
+      f.input :credit_card_number
+      f.input :expiration_date
+      f.input :quantity
+
+      # f.input :screen, label: 'Screen Room Number', :collection => Screen.all.map { |s| [s.room_number]}
+
+    end
+    f.actions
+  end
+
 
   filter :showtime
   filter :name

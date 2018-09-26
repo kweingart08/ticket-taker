@@ -7,8 +7,8 @@
   </div>
   <div class="details">
     <div class="showtime">
-      <h4><%=@showtime.time.strftime('%A %b. %d, %Y')%></h4>
-      <h4><%=@showtime.time.strftime('%I:%M %p')%></h4>
+      <h4><%=@showtime.show_date%></h4>
+      <h4><%=@showtime.show_time%></h4>
     </div>
     <div class="price">
       <h3>$<%= '%.2f' % @showtime.price%></h3>
@@ -16,10 +16,10 @@
     <div class="capacity-info">
       <h5>Room Capacity: <%=@showtime.screen.capacity%></h5>
       <h5>Tickets Sold: <%=@showtime.tickets_sold%></h5>
-      <h5>Tickets Remaining: <%= @showtime.screen.capacity - @showtime.tickets_sold %></h5>
+      <h5>Tickets Remaining: <%= @showtime.tickets_left %></h5>
     </div>
     <div class="info">
-      <% if @showtime.screen.capacity - @showtime.tickets_sold > 0 %>
+      <% if @showtime.tickets_left > 0 %>
         <%= link_to "Buy Tickets", new_showtime_order_path(@showtime), :class => 'button button-primary' %>
       <% else %>
         <p><strong>SOLD OUT</strong></p>

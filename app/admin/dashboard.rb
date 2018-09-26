@@ -6,8 +6,8 @@ ActiveAdmin.register_page "Dashboard" do
         column do
           panel "Orders" do
             table_for Order.all do
-              column("Quantity") { |order| order.quantity}
               column("Movie") { |order| Showtime.find_by(id: order.showtime_id).movie.title}
+              column("Quantity") { |order| order.quantity}
               column("Order Total") { |order| number_to_currency order.get_order_total }
             end
           end
