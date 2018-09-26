@@ -3,16 +3,12 @@ class OrdersController < ApplicationController
   def index
 
     if params[:value_one]
-      title = params[:value_one]
-      @orders = Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').where("title = '#{title}'")
+      @orders = Order.set_filter(params[:value_one])
     else
       @orders = Order.all
     end
 
     @sum = Order.sum(:quantity)
-
-    # go through each order and add up the quantity and price
-
     @revenue = Order.get_total_revenue(@orders)
 
   end

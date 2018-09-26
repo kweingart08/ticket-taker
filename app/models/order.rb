@@ -64,4 +64,8 @@ class Order < ApplicationRecord
     return revenue.round(2)
   end
 
+  def self.set_filter(title)
+    return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').where("title = '#{title}'")
+  end
+
 end
