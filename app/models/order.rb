@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   validates :email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validate :expiration_date_cannot_be_in_the_past
   validate :valid_card
-  
+
   after_save :update_tickets
 
   def expiration_date_cannot_be_in_the_past

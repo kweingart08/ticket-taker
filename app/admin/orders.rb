@@ -10,10 +10,10 @@ ActiveAdmin.register Order do
       order.showtime.movie.title
     end
     column 'Date' do |order|
-      order.showtime.time.strftime('%A %b. %d, %Y')
+      order.showtime.show_date
     end
     column 'Time' do |order|
-      order.showtime.time.strftime('%I:%M %p')
+      order.showtime.show_time
     end
     column :quantity
     column :order_total do |order|
