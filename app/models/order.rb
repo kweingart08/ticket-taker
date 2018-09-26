@@ -73,4 +73,24 @@ class Order < ApplicationRecord
     return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').where("title = '#{title}'")
   end
 
+  def self.revenue_per_movie
+    return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('price*quantity')
+  end
+
+  def self.revenue_per_time
+    return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group("extract(hour from time) || ':' || extract(minute from time)").order("extract(hour from time) || ':' || extract(minute from time)").sum('price*quantity')
+  end
+
+  def self.revenue_per_day
+    return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group_by_day_of_week('time', format: "%a").sum('price*quantity')
+  end
+
+  def self.tickets_per_movie
+    return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').joins('LEFT JOIN movies ON showtimes.movie_id = movies.id').group('title').sum('quantity')
+  end
+
+  def self.tickets_per_time
+    return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group("extract(hour from time) || ':' || extract(minute from time)").order("extract(hour from time) || ':' || extract(minute from time)").sum('quantity')
+  end
+
 end

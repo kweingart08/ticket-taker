@@ -46,8 +46,6 @@ ActiveAdmin.register Order do
       f.input :expiration_date
       f.input :quantity
 
-      # f.input :screen, label: 'Screen Room Number', :collection => Screen.all.map { |s| [s.room_number]}
-
     end
     f.actions
   end
