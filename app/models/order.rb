@@ -7,6 +7,7 @@ class Order < ApplicationRecord
   validate :valid_card
 
   after_save :update_tickets
+  after_save :send_confirmation_email
 
   def expiration_date_cannot_be_in_the_past
     if expiration_date.present? && expiration_date < Date.today
@@ -47,6 +48,10 @@ class Order < ApplicationRecord
     Showtime.find(id=self.showtime_id).update({
       tickets_sold: new_tickets
       })
+  end
+
+  def send_confirmation_email
+    OrderMailer.new_order(self).deliver_now
   end
 
   def get_order_total
