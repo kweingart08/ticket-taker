@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  require 'csv'
+
   belongs_to :showtime
 
   validates :name, :email, :credit_card_number, :expiration_date, :quantity, presence: true

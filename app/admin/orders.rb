@@ -57,12 +57,9 @@ ActiveAdmin.register Order do
 
   end
 
-  controller do
-    def upload_csv
-      p "================="
-      p "uploading csv....."
-      redirect_to '/admin/orders'
-    end
+  collection_action :import_csv, :method => :post do
+    # do importing work here
+    redirect_to :action => :index, :notice => "CSV Imported Successfully"
   end
 
   filter :showtime, label: 'Movie Title', :collection => Movie.all.map { |m| [m.title]}
