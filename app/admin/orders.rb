@@ -49,6 +49,22 @@ ActiveAdmin.register Order do
     f.actions
   end
 
+  action_item :only => :index do
+    link_to 'Upload Orders', :action => 'upload_csv'
+  end
+
+  collection_action :upload_csv do
+
+  end
+
+  controller do
+    def upload_csv
+      p "================="
+      p "uploading csv....."
+      redirect_to '/admin/orders'
+    end
+  end
+
   filter :showtime, label: 'Movie Title', :collection => Movie.all.map { |m| [m.title]}
   filter :name
   filter :email

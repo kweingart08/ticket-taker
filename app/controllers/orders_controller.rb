@@ -50,6 +50,7 @@ class OrdersController < ApplicationController
   end
 
 
+
   private def order_params
   params.require(:order).permit(:name, :email, :credit_card_number, :expiration_date, :quantity, :showtime_id)
 end
