@@ -17,7 +17,7 @@ ActiveAdmin.register Order do
     end
     column :quantity
     column :order_total do |order|
-      number_to_currency order.quantity * order.showtime.price
+      number_to_currency order.get_order_total
     end
     actions
   end

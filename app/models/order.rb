@@ -49,5 +49,8 @@ class Order < ApplicationRecord
       })
   end
 
+  def get_order_total
+    self.quantity * self.showtime.price
+  end
 
 end
