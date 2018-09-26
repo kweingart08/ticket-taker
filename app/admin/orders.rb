@@ -3,10 +3,15 @@ ActiveAdmin.register Order do
   permit_params :name, :email, :credit_card_number, :expiration_date, :quantity, :showtime_id
 
   index do
+
+    panel 'Total Revenue' do
+      number_to_currency Order.get_total_revenue(Order.all)
+    end
+
     column :id
     column :name
     column :email
-    column :movie do |order|
+    column :movie, sortable: true do |order|
       order.showtime.movie.title
     end
     column 'Date' do |order|
@@ -47,8 +52,7 @@ ActiveAdmin.register Order do
     f.actions
   end
 
-
-  filter :showtime
+  filter :showtime, label: 'Movie Title', :collection => Movie.all.map { |m| [m.title]}
   filter :name
   filter :email
   filter :quantity

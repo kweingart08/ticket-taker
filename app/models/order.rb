@@ -53,4 +53,15 @@ class Order < ApplicationRecord
     self.quantity * self.showtime.price
   end
 
+  def self.get_total_revenue(orders)
+    revenue = 0
+    orders.each do |order|
+      quantity = order.quantity.to_i
+      price = order.showtime.price.to_f
+      sale = quantity * price
+      revenue += sale
+    end
+    return revenue.round(2)
+  end
+
 end
