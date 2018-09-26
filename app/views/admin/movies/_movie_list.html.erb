@@ -9,8 +9,8 @@
       </tr>
       <% @showtime.each do |showtime| %>
       <tr>
-        <td><%=showtime.time.strftime('%A %b. %d, %Y')%></td>
-        <td><%=showtime.time.strftime('%I:%M %p')%></td>
+        <td><%=showtime.show_time%></td>
+        <td><%=showtime.show_date%></td>
       </tr>
       <% end %>
     </table>
