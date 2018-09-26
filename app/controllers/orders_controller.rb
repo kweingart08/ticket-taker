@@ -35,8 +35,6 @@ class OrdersController < ApplicationController
       })
 
     if @order.save
-
-      # OrderMailer.new_order(@order).deliver_now
       flash[:success] = "You have successfully ordered tickets!"
 
       redirect_to showtimes_path
