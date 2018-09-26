@@ -39,8 +39,7 @@ ActiveAdmin.register Order do
 
   form do |f|
     f.inputs "New Order" do
-      f.input :showtime
-      f.input :name
+      f.input :showtime, label: 'Showtime Number', :collection => Showtime.all.map { |s| [s.id] }.sort
       f.input :email
       f.input :credit_card_number
       f.input :expiration_date
