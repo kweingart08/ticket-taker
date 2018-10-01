@@ -44,22 +44,10 @@ ActiveAdmin.register Order do
       f.input :credit_card_number
       f.input :expiration_date
       f.input :quantity
+      f.input :name
 
     end
     f.actions
-  end
-
-  action_item :only => :index do
-    link_to 'Upload Orders', :action => 'upload_csv'
-  end
-
-  collection_action :upload_csv do
-
-  end
-
-  collection_action :import_csv, :method => :post do
-    # do importing work here
-    redirect_to :action => :index, :notice => "CSV Imported Successfully"
   end
 
   filter :showtime, label: 'Movie Title', :collection => Movie.all.map { |m| [m.title]}

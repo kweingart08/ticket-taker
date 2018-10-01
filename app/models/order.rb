@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  require 'csv'
 
   belongs_to :showtime
 
