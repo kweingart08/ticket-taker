@@ -49,7 +49,10 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-
+  def import
+    Order.import(params[:file])
+    redirect_to admin_orders_path, notice: "Orders Imported"
+  end
 
   private def order_params
   params.require(:order).permit(:name, :email, :credit_card_number, :expiration_date, :quantity, :showtime_id)

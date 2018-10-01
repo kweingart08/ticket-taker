@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :showtimes do
     resources :orders
   end
-  resources :orders
+  resources :orders do
+    collection { post :import }
+  end
 
   resources :owner, only: [:index]
   get 'owner/showtimes'

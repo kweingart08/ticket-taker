@@ -58,11 +58,6 @@ ActiveAdmin.register Order do
     render "admin/orders/upload_csv"
   end
 
-  collection_action :import_csv, :method => :post do
-
-    redirect_to :action => :index, :notice => "CSV imported Successfully!"
-  end
-
   filter :showtime, label: 'Movie Title', :collection => Movie.all.map { |m| [m.title]}
   filter :name
   filter :email

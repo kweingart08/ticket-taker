@@ -94,4 +94,10 @@ class Order < ApplicationRecord
     return Order.joins('LEFT JOIN showtimes ON orders.showtime_id = showtimes.id').group("extract(hour from time) || ':' || extract(minute from time)").order("extract(hour from time) || ':' || extract(minute from time)").sum('quantity')
   end
 
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+       Order.create! row.to_hash
+    end
+  end
+
 end
