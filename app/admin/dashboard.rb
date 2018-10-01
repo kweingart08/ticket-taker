@@ -4,8 +4,8 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc{ I18n.t("active_admin.dashboard") } do
       columns do
         column do
-          panel "Orders" do
-            table_for Order.all do
+          panel "Recent Orders" do
+            table_for Order.last(10) do
               column("Movie") { |order| Showtime.find_by(id: order.showtime_id).movie.title}
               column("Quantity") { |order| order.quantity}
               column("Order Total") { |order| number_to_currency order.get_order_total }
