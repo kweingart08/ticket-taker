@@ -13,6 +13,7 @@
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
+$primary-color: rgba(6, 20, 121, 0.95);
 @import 'formadmin/formadmin';
 
 // #header {
