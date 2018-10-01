@@ -14,6 +14,4 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
-  resources :owner, only: [:index]
-  get 'owner/showtimes'
 end
