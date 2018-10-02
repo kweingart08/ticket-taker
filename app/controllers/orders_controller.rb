@@ -50,12 +50,8 @@ class OrdersController < ApplicationController
   end
 
   def import
-    if Order.import(params[:file])
-      redirect_to admin_orders_path, notice: "Orders Imported"
-    else
-      flash[:danger] = "Error Encountered"
-      redirect_to admin_orders_path
-    end
+    Order.import(params[:file])
+    redirect_to admin_orders_path, notice: "Orders Imported"
   end
 
   private def order_params
