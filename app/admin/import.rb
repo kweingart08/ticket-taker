@@ -72,7 +72,7 @@ ActiveAdmin.register Import do
     end
 
     def create
-      @import = Import.new(params[:import])
+      @import = OrderImport.new(order_import_params)
       return render :new unless @import.save
 
       if @import.import!
@@ -83,8 +83,8 @@ ActiveAdmin.register Import do
     end
 
     def update
-      @import = Import.find(params[:id])
-      @import.attributes = params[:import] || {}
+      @import = OrderImport.find(params[:id])
+      @import.attributes = order_import_params || {}
       return render :edit unless @import.save
 
       if @import.import!
@@ -93,5 +93,12 @@ ActiveAdmin.register Import do
         return render :edit
       end
     end
+
+    private
+
+    def order_import_params
+      params.require(:import).permit(:file)
+    end
+
   end
 end
