@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_213904) do
+ActiveRecord::Schema.define(version: 2018_10_02_183230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,19 @@ ActiveRecord::Schema.define(version: 2018_09_25_213904) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "imports", force: :cascade do |t|
+    t.string "status"
+    t.text "results"
+    t.string "type"
+    t.string "file_file_name"
+    t.string "file_content_type"
+    t.bigint "file_file_size"
+    t.datetime "file_updated_at"
+    t.boolean "should_replace"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "movies", force: :cascade do |t|

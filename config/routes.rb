@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
+  resources :order_imports
+
 end
