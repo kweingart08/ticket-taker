@@ -96,7 +96,7 @@ class Order < ApplicationRecord
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-       Order.create! row.to_hash
+       return :failed unless Order.create(row.to_hash)
     end
   end
 
